@@ -3,6 +3,7 @@
 try:
     print("Welcome to ServaCalc, the simple server running costs calculation tool. I need to take a few bits of information from you.\n")
     towerCost = float(input("What is the cost of your tower unit in pounds and pence?\n"))
+    licenseCost = float(input("What is the cost of your Windows Server license?\n"))
     wattValue = int(input("How many watts does your tower unit use? See the manufacturer's website for details.\n"))
     electricityCost = float(input("Please enter the cost of your electricity in the form of pence per KWh. Check your energy provider for details.\n"))
 
@@ -17,7 +18,7 @@ else:
     kwhHourCost = float(kwhHour * electricityCost)
     totalcostMonth = float(kwhHourCost * 24 * 365 / 12)
 
-    print(f"Your initial setup costs are £{towerCost:,.2f}".replace('$-', '-$'))
+    print(f"Your initial setup costs are £{towerCost + licenseCost:,.2f}".replace('$-', '-$'))
     print(f"Your total monthly server running costs are £{totalcostMonth/100:,.2f}".replace('$-', '-$'))
     
     ## Calculations.
